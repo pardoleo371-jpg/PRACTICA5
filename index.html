@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CienciaApp — Explora el Universo</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">⚛ CienciaApp</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#ramas">Ramas</a>
+      <a href="#dato">Dato del día</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio" onclick="closeMenu()">Inicio</a>
+    <a href="#ramas" onclick="closeMenu()">Ramas</a>
+    <a href="#dato" onclick="closeMenu()">Dato del día</a>
+    <a href="#quiz" onclick="closeMenu()">Quiz</a>
+  </div>
+
+  <section class="hero" id="inicio">
+    <div class="stars" id="stars"></div>
+    <div class="mascota-container">
+      <img src="calaca.jpeg" alt="Mascota CienciaApp" class="mascota"/>
+      <p class="mascota-label">⚗️ Dra. Calaca</p>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">🔬 Tu portal científico</p>
+      <h1 class="hero-title">Explora el<br><span class="glow">Universo</span><br>de la Ciencia</h1>
+      <p class="hero-sub">Física · Química · Biología · Astronomía · Tecnología</p>
+      <a href="#ramas" class="btn-primary">Comenzar exploración →</a>
+    </div>
+    <div class="floating-icons">
+      <span class="fi fi1">🧬</span>
+      <span class="fi fi2">🪐</span>
+      <span class="fi fi3">⚗️</span>
+      <span class="fi fi4">🔭</span>
+      <span class="fi fi5">🧪</span>
+    </div>
+  </section>
+
+  <section class="section" id="ramas">
+    <h2 class="section-title">Ramas de la <span class="accent">Ciencia</span></h2>
+    <p class="section-sub">Haz clic en cada tarjeta para aprender más</p>
+    <div class="cards-grid">
+
+      <div class="card" onclick="showInfo('fisica')">
+        <div class="card-icon">⚛️</div>
+        <h3>Física</h3>
+        <p>El estudio de la materia, energía y las fuerzas del universo.</p>
+        <div class="card-info" id="fisica">
+          La física estudia desde las partículas subatómicas hasta los agujeros negros. Sus leyes explican por qué cae una manzana y cómo viajan las ondas de luz.
+        </div>
+      </div>
+
+      <div class="card" onclick="showInfo('quimica')">
+        <div class="card-icon">⚗️</div>
+        <h3>Química</h3>
+        <p>La ciencia de las sustancias, sus propiedades y reacciones.</p>
+        <div class="card-info" id="quimica">
+          La química está en todo: los medicamentos que tomamos, los alimentos que comemos y los materiales que usamos a diario. Es la ciencia de la transformación.
+        </div>
+      </div>
+
+      <div class="card" onclick="showInfo('biologia')">
+        <div class="card-icon">🧬</div>
+        <h3>Biología</h3>
+        <p>El estudio de los seres vivos y sus procesos vitales.</p>
+        <div class="card-info" id="biologia">
+          Desde las bacterias hasta las ballenas, la biología nos explica cómo funciona la vida. El ADN contiene el código que define cada organismo del planeta.
+        </div>
+      </div>
+
+      <div class="card" onclick="showInfo('astronomia')">
+        <div class="card-icon">🪐</div>
+        <h3>Astronomía</h3>
+        <p>El estudio del cosmos, planetas, estrellas y galaxias.</p>
+        <div class="card-info" id="astronomia">
+          El universo observable tiene más de 93 mil millones de años luz de diámetro. La astronomía nos conecta con el origen y el destino de todo lo que existe.
+        </div>
+      </div>
+
+      <div class="card" onclick="showInfo('tecnologia')">
+        <div class="card-icon">💻</div>
+        <h3>Tecnología</h3>
+        <p>La aplicación del conocimiento científico para resolver problemas.</p>
+        <div class="card-info" id="tecnologia">
+          La tecnología nace de la ciencia. La inteligencia artificial, los cohetes y los teléfonos inteligentes son producto de siglos de investigación científica aplicada.
+        </div>
+      </div>
+
+      <div class="card" onclick="showInfo('geologia')">
+        <div class="card-icon">🌋</div>
+        <h3>Geología</h3>
+        <p>El estudio de la Tierra, su historia y estructura interna.</p>
+        <div class="card-info" id="geologia">
+          La Tierra tiene 4,500 millones de años. La geología estudia los movimientos de las placas tectónicas, los volcanes, los terremotos y los recursos minerales.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section dato-section" id="dato">
+    <h2 class="section-title">🔍 Dato Científico del Día</h2>
+    <div class="dato-box" id="datoBox">
+      <p id="datoTexto">Haz clic en el botón para descubrir un dato sorprendente.</p>
+    </div>
+    <button class="btn-primary" onclick="nuevoDato()">✨ Nuevo dato</button>
+  </section>
+
+  <section class="section" id="quiz">
+    <h2 class="section-title">🧠 Quiz de <span class="accent">Ciencia</span></h2>
+    <p class="section-sub">Pon a prueba tus conocimientos</p>
+    <div class="quiz-box">
+      <p class="quiz-pregunta" id="quizPregunta">Presiona "Iniciar" para comenzar</p>
+      <div class="quiz-opciones" id="quizOpciones"></div>
+      <p class="quiz-resultado" id="quizResultado"></p>
+      <button class="btn-primary" id="quizBtn" onclick="iniciarQuiz()">🚀 Iniciar Quiz</button>
+    </div>
+    <div class="quiz-score">
+      Puntaje: <span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>⚛ <strong>CienciaApp</strong> — Desarrollado por Leonardo Lugardo</p>
+    <p>Submódulo 2 · Desarrollo de Aplicaciones · 2026</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
